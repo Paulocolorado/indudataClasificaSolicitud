@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Indudata</title>
+            </f:facet>
+            <h:outputStylesheet library="css" name="index.css" />
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                
+                    <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                        <img src="resources/images/banner.png" width="100%" height="100%" alt="banner"/>
+                    </p:layoutUnit>
+  
+                <p:layoutUnit position="west" size="245" header="Menú" collapsible="true">
+                    <p:menu>
+                            <p:menuitem value="Criterios de Asignación" url="faces/criteriosAsigna.xhtml" />
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    <h:form>
+                        <div id="busqueda">
+                            <h:panelGrid columns="3">
+                                <h:outputText value="Busqueda Profesional" class="textoBusqueda" />
+                                    <p:spacer width="50"/>
+                                <p:inputText id="counter" value="#{listenerView.text}" >
+                                    <p:ajax event="keyup" update="out" listener="#{listenerView.handleKeyEvent}"  />
+                                </p:inputText>
+                                <h:outputText id="out" value="#{listenerView.text}" />
+                            </h:panelGrid>
+                        </div>    
+                    </h:form>
+<!-- Esta tabla se va a ocultar temporalmente, con el fin de quemar los datos en el siguiente panelgrid
+
+                    <p:dataTable var="car" >
+                        <p:column headerText="Profesional">
+                            <h:outputText value="prueba" />
+                        </p:column>
+
+                        <p:column headerText="Tipo de Solicitud">
+                            <h:outputText value="11111" />
+                        </p:column>
+
+                        <p:column headerText="Tipo de Tramite">
+                            <h:outputText value="" />
+                        </p:column>
+
+                        <p:column headerText="Temas o Asuntos">
+                            <h:outputText value="" />
+                        </p:column>
+                        
+                        <p:column headerText="Grado Cargo">
+                            <h:outputText value="" />
+                        </p:column>
+
+                        <p:column headerText="Especialidades">
+                            <h:outputText value="" />
+                        </p:column>
+
+                        <p:column headerText="Estudios">
+                            <h:outputText value="" />
+                        </p:column>
+                    
+                                        
+                    </p:dataTable>
+-->    
+                    <!--El panelgrid a continuacion muestra valores "quemados"-->     
+                        <p:panelGrid columns="7">            
+                            <h:outputText value="Profesional" style="font-weight: bold;" /> 
+                            <h:outputText value="Tipo de Solicitud" style="font-weight: bold;" /> 
+                            <h:outputText value="Tipo de Tramite" style="font-weight: bold;"/> 
+                            <h:outputText value="Temas o Asuntos" style="font-weight: bold;"/> 
+                            <h:outputText value="Grado Cargo" style="font-weight: bold;"/> 
+                            <h:outputText value="Especialidades" style="font-weight: bold;"/> 
+                            <h:outputText value="Abogado" style="font-weight: bold;"/> 
+  
+                            <h:outputText value="Profesional 1" /> 
+                            <h:outputText value="Conceptos Juridicos Resolucion PQRS Revision de legalidad" /> 
+                            <h:outputText value="Resoluciones decretos, Proyectos, Acuerdo, Sanción" /> 
+                            <h:outputText value="Re-estructuración" /> 
+                            <h:outputText value="24" /> 
+                            <h:outputText value="Derecho Administrativo, Derecho Contractual" /> 
+                            <h:outputText value="Abogado" />
+                            
+                            <h:outputText value="Profesional 2" /> 
+                            <h:outputText value="Conceptos Juridicos Resolucion PQRS Revision de legalidad" /> 
+                            <h:outputText value="Resoluciones decretos, Proyectos, Acuerdo, Sanción" /> 
+                            <h:outputText value="Re-estructuración" /> 
+                            <h:outputText value="24" /> 
+                            <h:outputText value="Derecho Administrativo, Derecho Contractual" /> 
+                            <h:outputText value="Abogado" />
+  
+                            <h:outputText value="Profesional 3" /> 
+                            <h:outputText value="Conceptos Juridicos Resolucion PQRS Revision de legalidad" /> 
+                            <h:outputText value="Resoluciones decretos, Proyectos, Acuerdo, Sanción" /> 
+                            <h:outputText value="Re-estructuración" /> 
+                            <h:outputText value="24" /> 
+                            <h:outputText value="Derecho Administrativo, Derecho Contractual" /> 
+                            <h:outputText value="Abogado" />
+                            
+                            <h:outputText value="Profesional 4" /> 
+                            <h:outputText value="Conceptos Juridicos Resolucion PQRS Revision de legalidad" /> 
+                            <h:outputText value="Resoluciones decretos, Proyectos, Acuerdo, Sanción" /> 
+                            <h:outputText value="Re-estructuración" /> 
+                            <h:outputText value="24" /> 
+                            <h:outputText value="Derecho Administrativo, Derecho Contractual" /> 
+                            <h:outputText value="Abogado" />
+                            
+                            <h:outputText value="Profesional 5" /> 
+                            <h:outputText value="Conceptos Juridicos Resolucion PQRS Revision de legalidad" /> 
+                            <h:outputText value="Resoluciones decretos, Proyectos, Acuerdo, Sanción" /> 
+                            <h:outputText value="Re-estructuración" /> 
+                            <h:outputText value="24" /> 
+                            <h:outputText value="Derecho Administrativo, Derecho Contractual" /> 
+                            <h:outputText value="Abogado" />
+  
+                            <h:outputText value="Profesional 6" /> 
+                            <h:outputText value="Conceptos Juridicos Resolucion PQRS Revision de legalidad" /> 
+                            <h:outputText value="Resoluciones decretos, Proyectos, Acuerdo, Sanción" /> 
+                            <h:outputText value="Re-estructuración" /> 
+                            <h:outputText value="24" /> 
+                            <h:outputText value="Derecho Administrativo, Derecho Contractual" /> 
+                            <h:outputText value="Abogado" />                            
+  
+  
+                        </p:panelGrid>
+                        
+                    </p:layoutUnit>
+                <p:layoutUnit position="south" size="130" closable="true" collapsible="true">
+                    <div id="botonAgregarProf" style="">
+                        <p:commandButton value="Agregar Profesional" class="button" />
+                    </div>
+
+                        <div id="botonGuardar">
+                            <p:commandButton value="Guardar" class="button"/>
+                        </div> 
+                        <div id="botonCerrar">
+                            <p:commandButton value="Cerrar" class="button" />
+                        </div> 
+
+                </p:layoutUnit>
+
+            </p:layout>
+ 
+        </h:body>
+
+    </f:view>
+</html>
+
