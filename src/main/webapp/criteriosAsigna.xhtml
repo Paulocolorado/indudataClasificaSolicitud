@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Indudata</title>
+            </f:facet>
+                <h:outputStylesheet library="css" name="index.css" />
+        </h:head>
+
+        <h:body>
+            <h:form id="frmBuscarUsuario" enctype="multipart/form-data" >
+            <f:event type="preRenderView" listener="#{criterioAsignaController.leerArchivo()}" />
+                <p:layout fullPage="true">
+                    <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true" >
+                        <img src="resources/images/banner.png" width="100%" height="100%" alt="banner"/>
+                    </p:layoutUnit>
+                    <p:layoutUnit position="west" size="245" header="Menú" collapsible="false" >
+                        <p:menu>
+                                <p:menuitem value="Inicio" url="index.xhtml" />
+                        </p:menu>
+                    </p:layoutUnit>
+                <p:layoutUnit position="center">
+             
+                    <div id="titulo1">
+                        <h:outputText value="Aceptar Asignación o Reasignación" class="titulo1" />
+                    </div>    
+                    <div id="busqueda">
+                            <h:outputText value="Actividades Pendientes" class="textoBusqueda" />
+                            <br><p:spacer width="5"/></br>
+                            <h:outputText value="-Asignaciones Pendientes" class="textoBusqueda" />
+                    </div>    
+                    
+                    <p:panel id="pnlResultadoListatXT" header="Resultado Consulta" >
+                        <p:dataTable id="dtlistaItems" var="listaItems" value="#{criterioAsignaController.listaItemsTxt}" paginator="true" rows="10" styleClass="paginated" emptyMessage="mensajeNoEncontro" paginatorPosition="bottom" rendered="true">
+                            
+
+                            <p:column headerText="Fecha Solicitud" style="text-align: center" width="7%">
+                                <h:outputText value="#{listaItems.fechaSolicitud}" style="font-size: 14px" />
+                            </p:column>
+
+                            <p:column headerText="Tipo de Solicitud">
+                                <h:outputText value="#{listaItems.tipoSolicitud}" style="font-size: 14px"  />
+                            </p:column>
+
+                            <p:column headerText="Descripción">
+                                <h:outputText value="#{listaItems.descripcion}"  style="font-size: 14px" />
+                            </p:column>
+
+                            <p:column headerText="Asignación Propuesta" width="10%" >
+                                <h:outputText value="#{listaItems.asignacionPropuesta}" style="font-size: 14px" />
+                            </p:column>
+
+                            <p:column headerText="Grado Confianza" width="8%" style="text-align: center" >
+                                <h:outputText value="#{listaItems.porcentaje}" style="font-size: 14px"/>
+                            </p:column>
+
+                            <p:column headerText="Aceptar Reasignar" width="23%">
+                                <p:column>
+                                        <p:selectBooleanCheckbox/>
+                                    </p:column>
+                                    <p:column>
+                                        <select name="OS">
+                                           <option value="1">Elija Profesional</option> 
+                                           <option value="2">Danilo Rojas Betancourth</option> 
+                                           <option value="3">Javier Tamayo Jaramillo</option>
+                                           <option value="4">Lida de los Angeles Prieto Pinto</option> 
+                                           <option value="5">Diego Lopez medina</option>
+                                        </select>
+                                    </p:column>
+                            </p:column>
+
+                        </p:dataTable>
+                    
+                </p:panel>
+
+<!--
+                    <p:panelGrid style="margin-top:20px; width: 100%">
+
+                            <p:row>
+                                <p:column style="font-weight: bold;">Fecha Solicitud</p:column>
+                                <p:column style="font-weight: bold;">Tipo de solicitud</p:column>
+                                <p:column style="font-weight: bold;">Descripción</p:column>
+                                <p:column style="font-weight: bold;">Asignación Propuesta</p:column>
+                                <p:column style="font-weight: bold;">Grado Confianza</p:column>
+                                <p:column colspan="2" style="font-weight: bold;">Aceptar / Reasignar</p:column>            
+                            </p:row>
+
+
+
+                                <p:row>
+                                    <p:column><h:outputText value="otro"/></p:column>
+                                    <p:column>Conceptos Juridicos</p:column> 
+                                    <p:column>Temas o Asuntos, otros, espacio para descripciones largas o cortas.</p:column>
+                                    <p:column>Profesional 1</p:column>
+                                    <p:column>70%</p:column>
+                                    <p:column>
+                                        <p:selectBooleanCheckbox/>
+                                    </p:column>
+                                    <p:column>
+                                        <select name="OS">
+                                           <option value="1">Elija Profesional</option> 
+                                           <option value="2">Profesional 1</option> 
+                                           <option value="3">Profesional 2</option>
+                                           <option value="4">Profesional 3</option> 
+                                        </select>
+                                    </p:column>
+
+                                </p:row>
+
+                                <p:row>
+                                    <p:column>23/06/2018</p:column>
+                                    <p:column>Conceptos Juridicos</p:column> 
+                                    <p:column>Temas o Asuntos, otros, espacio para descripciones largas o cortas.</p:column>
+                                    <p:column>Profesional 1</p:column>
+                                    <p:column>70%</p:column>
+                                    <p:column>
+                                        <p:selectBooleanCheckbox/>
+                                    </p:column>
+                                    <p:column>
+                                        <select name="OS">
+                                           <option value="1">Elija Profesional</option> 
+                                           <option value="2">Profesional 1</option> 
+                                           <option value="3">Profesional 2</option>
+                                           <option value="4">Profesional 3</option> 
+                                        </select>
+                                    </p:column>
+
+                                </p:row>    <p:row>
+                                    <p:column>23/06/2018</p:column>
+                                    <p:column>Conceptos Juridicos</p:column> 
+                                    <p:column>Temas o Asuntos, otros, espacio para descripciones largas o cortas.</p:column>
+                                    <p:column>Profesional 1</p:column>
+                                    <p:column>70%</p:column>
+                                    <p:column>
+                                        <p:selectBooleanCheckbox/>
+                                    </p:column>
+                                    <p:column>
+                                        <select name="OS">
+                                           <option value="1">Elija Profesional</option> 
+                                           <option value="2">Profesional 1</option> 
+                                           <option value="3">Profesional 2</option>
+                                           <option value="4">Profesional 3</option> 
+                                        </select>
+                                    </p:column>
+
+                                </p:row>    <p:row>
+                                    <p:column>23/06/2018</p:column>
+                                    <p:column>Conceptos Juridicos</p:column> 
+                                    <p:column>Temas o Asuntos, otros, espacio para descripciones largas o cortas.</p:column>
+                                    <p:column>Profesional 1</p:column>
+                                    <p:column>70%</p:column>
+                                    <p:column>
+                                        <p:selectBooleanCheckbox/>
+                                    </p:column>
+                                    <p:column>
+                                        <select name="OS">
+                                           <option value="1">Elija Profesional</option> 
+                                           <option value="2">Profesional 1</option> 
+                                           <option value="3">Profesional 2</option>
+                                           <option value="4">Profesional 3</option> 
+                                        </select>
+                                    </p:column>
+
+                                </p:row>    <p:row>
+                                    <p:column>23/06/2018</p:column>
+                                    <p:column>Conceptos Juridicos</p:column> 
+                                    <p:column>Temas o Asuntos, otros, espacio para descripciones largas o cortas.</p:column>
+                                    <p:column>Profesional 1</p:column>
+                                    <p:column>70%</p:column>
+                                    <p:column>
+                                        <p:selectBooleanCheckbox/>
+                                    </p:column>
+                                    <p:column>
+                                        <select name="OS">
+                                           <option value="1">Elija Profesional</option> 
+                                           <option value="2">Profesional 1</option> 
+                                           <option value="3">Profesional 2</option>
+                                           <option value="4">Profesional 3</option> 
+                                        </select>
+                                    </p:column>
+
+                                </p:row>
+                          
+   -->                             
+                                <!--
+                                <p:dialog header="Resultado" widgetVar="clienteCruce" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                                <p:outputPanel id="pnlResultadoCruce" style="text-align:center;">
+
+                                    <p:dataTable  id="dtClienteCoincide" var="clienteCruce" value="#{criterioAsignaController.listaItemsTxt}" paginator="true" rows="10" styleClass="paginated" emptyMessage="No Encontro" paginatorPosition="bottom">
+
+                                            <p:column headerText="Fecha Solicitud">
+                                                <h:outputText value="11 julio 2018" />
+                                            </p:column>
+
+                                            <p:column headerText="Tipo de Solicitud">
+                                                <h:outputText value="Otro" />
+                                            </p:column>
+
+                                            <p:column headerText="Descripción">
+                                                <h:outputText value="Otro" />
+                                            </p:column>
+
+                                            <p:column headerText="Asignación Propuesta">
+                                                <h:outputText value="Otro" />
+                                            </p:column>
+
+                                            <p:column headerText="Grado de Confianza">
+                                                <h:outputText value="Otro" />
+                                            </p:column>
+
+                                            <p:column headerText="Aceptar / Reasignar">
+                                                <h:outputText value="Otro" />
+                                            </p:column>
+                        
+                                        </p:dataTable>  
+
+                                        <f:facet name="footer" >
+                                        <center>
+                                            <h:commandLink value="descarga">                                         
+                                                <p:dataExporter type="csv" target="dtClienteCoincide" fileName="descarga" />
+                                            </h:commandLink>
+                                        </center>
+                                        </f:facet> 
+
+                                </p:outputPanel>
+                                
+                                <f:facet name="footer" >
+                                    <center>
+                                        <h:commandLink value="descarga">                                         
+                                            <p:dataExporter type="csv" target="dtClienteCoincide" fileName="descarga" />
+                                        </h:commandLink>
+                                    </center>
+                                </f:facet> 
+                            </p:dialog>
+                                
+                          </p:panelGrid>
+                        -->
+                    </p:layoutUnit>
+
+
+            </p:layout>
+            </h:form>
+        </h:body>
+
+    </f:view>
+</html>
+

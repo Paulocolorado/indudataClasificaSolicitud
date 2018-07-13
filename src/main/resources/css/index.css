@@ -1,0 +1,81 @@
+#contenedor{
+  background-color: gray;  
+  margin-bottom: 10%;
+}
+
+#header {
+    background-color: black;
+
+}
+#botonAgregarProf{
+    position:absolute; 
+    bottom:50%;
+}
+
+#botonGuardar{
+    position:fixed; 
+    bottom: 1%;
+}
+
+#botonCerrar{
+    padding-left: 10%;
+    position: fixed;
+    bottom: 1%;
+}
+
+.button {
+    text-shadow: none !important;
+    font-weight: normal !important;
+    border-radius:7px;
+    font-size:15px;
+    margin:15px;
+    float:right;
+    color:#D6D6D6!important;
+    font-weight:bold;
+    display:inline-block;
+    padding:15px 25px 15px 25px;
+    background:#4D4D4D !important;
+    box-shadow: 0 15px 20px -10px rgba(0, 0, 0, 0), inset 0 -3px 0 0 rgba(36, 29, 29, 0.7), inset 0 -0px 0 0 #594a4b;
+    transition:all .3s ease-in-out;
+}
+
+.button:hover {
+text-decoration:none;
+    box-shadow:0 15px 20px -10px rgba(0, 0, 0, 0), inset 0 -1px 0 0 rgba(0, 0, 0, 0.1), inset 0 0 0 0 #383838;
+    color:#797979!important;
+}
+.button:active {
+    box-shadow:0 0 0 0 rgba(0, 0, 0, 0.2), inset 0 -2px 0 0 rgba(0, 0, 0, 0.2), inset 0 20px 25px 10px #383838;
+    background:#000000;
+    color:#fff!important;
+    transition:all .1s ease-in-out
+}
+
+#busqueda{
+    padding-left: 2%;
+    padding-bottom: 1%;
+}
+
+#titulo1 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/*Este quita un aviso que de no records found*/
+.ui-datatable tbody td {
+    border-color: inherit;
+    display: none;
+}
+
+.menuIzquierdo {
+    background-color: black !important;
+}
+
+.contenidoCentral {
+    float: right; 
+    border-style: solid; 
+    border-color:activeborder; 
+    border-width: medium; 
+    width: 80%; height: 300px;
+}
