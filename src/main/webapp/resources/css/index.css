@@ -78,7 +78,3 @@ text-decoration:none;
     font-family: Arial,sans-serif;
     font-size: 14px;
 }
-.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
-
-    width: 78%;
-}

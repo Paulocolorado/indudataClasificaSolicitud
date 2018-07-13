@@ -36,16 +36,16 @@ public class CriterioAsignaController implements Serializable{
         
         try{
             this.listaItemsTxt = new ArrayList<ReportePojo>(); 
-            BufferedReader bf = new BufferedReader (new FileReader("C:\\MatrizDatos.csv"));
+            BufferedReader bf = new BufferedReader (new FileReader("C:\\indudata\\MatrizDatos.csv"));
             String bfRead;
             while((bfRead = bf.readLine()) !=null){
                 ReportePojo reportePojo = new ReportePojo();
                 String separador[] = bfRead.split(","); 
-                reportePojo.setFechaSolicitud("15/07/2018");//separador[14]
+                reportePojo.setFechaSolicitud(separador[14]);//
                 reportePojo.setTipoSolicitud(separador[12]);
                 reportePojo.setDescripcion(separador[13].length()>=100?separador[13].substring(0,100):separador[13]);
                 reportePojo.setAsignacionPropuesta(separador[15]);
-                reportePojo.setPorcentaje(Double.toString(Math.random()+'%'));
+                reportePojo.setPorcentaje(Double.toString(Math.floor(Math.random()*9*10))+"%");
                 reportePojo.setAceptar("");
                 this.listaItemsTxt.add(reportePojo);
            }
